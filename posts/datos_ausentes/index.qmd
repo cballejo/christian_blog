@@ -4,7 +4,7 @@ subtitle: "Serie Datos"
 author: "Christian Ballejo"
 date: "2026-07-30"
 categories: [R, análisis, datos, NA, naniar]
-image: "tasas.jpg"
+image: "ausentes.jpg"
 bibliography: bibliografia.bib
 nocite: |
   @*
@@ -12,7 +12,7 @@ nocite: |
 
 ## ¿Por qué importan los datos ausentes?
 
-Cuando trabajamos con datos reales, los valores perdidos (`NA` en R) no son simplemente un inconveniente técnico: representan decisiones analíticas con consecuencias concretas sobre la validez de las estimaciones. Ignorarlos o tratarlos de forma descuidada puede introducir sesgo de selección, alterar la representatividad de la muestra e implicar supuestos implícitos sobre el proceso que generó los datos.
+Cuando trabajamos con datos reales, los valores perdidos (**NA** en R) no son simplemente un inconveniente técnico: representan decisiones analíticas con consecuencias concretas sobre la validez de las estimaciones. Ignorarlos o tratarlos de forma descuidada puede introducir sesgo de selección, alterar la representatividad de la muestra e implicar supuestos implícitos sobre el proceso que generó los datos.
 
 Por eso, antes de modelar o graficar, es indispensable entender qué está pasando con los valores ausentes. Tratar los `NA` no es simplemente "rellenar huecos": es preguntarse qué dicen esos huecos sobre el proceso que produjo los datos, es decir, si existe un mecanismo de ausencia subyacente.
 
@@ -38,7 +38,7 @@ En la práctica, asumir MCAR es cómodo pero raramente justificado con datos rea
 
 ### MAR — *Missing at Random* (ausencia dependiente de lo observado)
 
-La ausencia depende de las variables observadas, pero no del valor que falta, una vez que se condiciona en esas variables. En este caso, ignorar el patrón de ausencia y eliminar filas puede introducir sesgo, ya que la estructura de covariables estará desbalanceada entre los casos observados y los ausentes. 
+La ausencia depende de las variables observadas, pero no del valor que falta, una vez que se condiciona en esas variables. En este caso, ignorar el patrón de ausencia y eliminar filas puede introducir sesgo, ya que la estructura de covariables estará desbalanceada entre los casos observados y los ausentes.
 
 Supongamos, por ejemplo, que tenemos la variable *nivel de colesterol* con valores faltantes y la edad de la persona que está completa. Existe un escenario posible de mecanismo que puede explicarse en que las personas más jóvenes tienen menos probabilidad de hacerse un análisis y ello explica los NA en colesterol. Además, dentro de cada grupo etario, los valores de colesterol faltantes no son sistemáticamente más altos o más bajos que los observados.
 
@@ -60,7 +60,6 @@ datos <- datos |> mutate(edad_na = is.na(edad))
 
 Este indicador no reemplaza la imputación, pero puede ser útil como variable adicional en modelos o para explorar el mecanismo de ausencia.
 
-
 ## El error más común: eliminar filas con al menos un NA
 
 La eliminación masiva de observaciones con datos ausentes es una forma de **sesgo de selección**. Cuando una tabla tiene muchos NA, eliminar todas las filas incompletas equivale a redefinir silenciosamente la población de estudio: ya no se trabaja con "todos los individuos", sino con *"los individuos con datos completos"*.
@@ -75,7 +74,7 @@ Un método frecuente consiste en reemplazar los NA por un valor resumen de la di
 
 En definitiva, no se están completando datos, sino introduciendo observaciones deterministas que nunca existieron.
 
-## Métodos avanzados 
+## Métodos avanzados
 
 La imputación avanzada es un campo extenso que excede los objetivos de esta cursada, pero mencionaremos su existencia. Las técnicas más utilizadas son:
 
@@ -115,7 +114,7 @@ Se complementa con el gráfico de Pareto `plot_na_pareto()`, provisto por el mis
 plot_na_pareto(datos, only_na = TRUE)
 ```
 
-### Paso 2: explorar la estructura de los NA con `naniar`
+### Paso 2: explorar la estructura de los NA con naniar
 
 El paquete `naniar` fue diseñado específicamente para el manejo de valores faltantes en el ecosistema `tidyverse`. Sus funciones permiten no solo cuantificar los NA sino también explorar sus relaciones y patrones, lo que es esencial para evaluar el mecanismo de ausencia.
 
@@ -193,7 +192,7 @@ Cuando la ausencia es potencialmente informativa, puede crearse un indicador bin
 ## Resumen de buenas prácticas
 
 | Acción | Herramienta en R |
-|---|---|
+|------------------------------------|------------------------------------|
 | Cuantificar NA por variable | `find_na()` (dlookr), `miss_var_summary()` (naniar) |
 | Visualizar frecuencia de NA | `plot_na_pareto()`, `gg_miss_var()` |
 | Explorar combinaciones de NA | `gg_miss_upset()` (naniar) |
@@ -201,7 +200,6 @@ Cuando la ausencia es potencialmente informativa, puede crearse un indicador bin
 | Etiquetar NA como categoría | `replace_na_with()` (naniar) |
 | Eliminar observaciones incompletas | `drop_na()` (tidyr) |
 | Justificar y reportar la decisión | — |
-
 
 ## Conclusión
 
