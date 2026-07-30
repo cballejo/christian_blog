@@ -249,7 +249,7 @@ window.Quarto = {
 
 <section id="por-qué-importan-los-datos-ausentes" class="level2">
 <h2 class="anchored" data-anchor-id="por-qué-importan-los-datos-ausentes">¿Por qué importan los datos ausentes?</h2>
-<p>Cuando trabajamos con datos reales, los valores perdidos (<code>NA</code> en R) no son simplemente un inconveniente técnico: representan decisiones analíticas con consecuencias concretas sobre la validez de las estimaciones. Ignorarlos o tratarlos de forma descuidada puede introducir sesgo de selección, alterar la representatividad de la muestra e implicar supuestos implícitos sobre el proceso que generó los datos.</p>
+<p>Cuando trabajamos con datos reales, los valores perdidos (<strong>NA</strong> en R) no son simplemente un inconveniente técnico: representan decisiones analíticas con consecuencias concretas sobre la validez de las estimaciones. Ignorarlos o tratarlos de forma descuidada puede introducir sesgo de selección, alterar la representatividad de la muestra e implicar supuestos implícitos sobre el proceso que generó los datos.</p>
 <p>Por eso, antes de modelar o graficar, es indispensable entender qué está pasando con los valores ausentes. Tratar los <code>NA</code> no es simplemente “rellenar huecos”: es preguntarse qué dicen esos huecos sobre el proceso que produjo los datos, es decir, si existe un mecanismo de ausencia subyacente.</p>
 </section>
 <section id="contexto-para-la-toma-de-decisiones" class="level2">
@@ -332,7 +332,7 @@ window.Quarto = {
 </div>
 </section>
 <section id="paso-2-explorar-la-estructura-de-los-na-con-naniar" class="level3">
-<h3 class="anchored" data-anchor-id="paso-2-explorar-la-estructura-de-los-na-con-naniar">Paso 2: explorar la estructura de los NA con <code>naniar</code></h3>
+<h3 class="anchored" data-anchor-id="paso-2-explorar-la-estructura-de-los-na-con-naniar">Paso 2: explorar la estructura de los NA con naniar</h3>
 <p>El paquete <code>naniar</code> fue diseñado específicamente para el manejo de valores faltantes en el ecosistema <code>tidyverse</code>. Sus funciones permiten no solo cuantificar los NA sino también explorar sus relaciones y patrones, lo que es esencial para evaluar el mecanismo de ausencia.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
