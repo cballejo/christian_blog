@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Blog de Christian"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/cballejo/
+      - icon: twitter-x
+        href: http://x.com/chrisballejo
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+
+editor: visual
+

@@ -1,0 +1,28 @@
+---
+title: "Acerca de mi"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter-x
+      text: X
+      href: http://x.com/chrisballejo
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/cballejo/
+    - icon: github
+      text: Github
+      href: https://github.com/cballejo/
+---
+
+Hola, soy Christian Ballejo y trabajo de especialista de datos en el Instituto Nacional de Epidemiología-ANLIS en la ciudad de Mar del Plata.
+
+Hace 12 años que incursiono en el mundo del lenguaje R y todo el universo alrededor de él.
+
+Me interesa la epidemiología, la ciencia abierta, la estadística y la informática.
+
+Actualmente mi trabajo se centra en ser parte de los grupos de investigación y vigilancia epidemiológica del Instituto aportando analisis de los datos. Además soy docente del curso regular Epidemiología Nivel Avanzado y de otros cursos a demanda sobre lenguaje a R.
+
+En este blog iré compartiendo articulos, tutoriales y actividades varias.
+
+Nos leemos!
