@@ -3,7 +3,7 @@ title: "Análisis de encuestas poblaciones con survey y srvyr"
 subtitle: "Serie Encuestas"
 author: "Christian Ballejo"
 date: "2026-07-30"
-categories: [R, análisis, datos]
+categories: [R, análisis, datos, srvyr, encuestas]
 image: "encuesta.jpg"
 bibliography: bibliografia.bib
 nocite: |

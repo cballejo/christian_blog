@@ -3,7 +3,7 @@ title: "Ajuste directo e indirecto de tasas de mortalidad"
 subtitle: "Serie Indicadores"
 author: "Christian Ballejo"
 date: "2026-07-30"
-categories: [R, análisis, datos]
+categories: [R, análisis, datos, PHEindicatormethods, mortalidad, tasas]
 image: "tasas.jpg"
 bibliography: references.bib
 nocite: |

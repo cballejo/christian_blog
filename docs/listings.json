@@ -3,7 +3,8 @@
     "listing": "/index.html",
     "items": [
       "/posts/encuestas/index.html",
-      "/posts/ajuste_tasas/index.html"
+      "/posts/ajuste_tasas/index.html",
+      "/posts/datos_ausentes/index.html"
     ]
   }
 ]

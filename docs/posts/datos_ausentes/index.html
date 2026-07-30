@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.21">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Christian Ballejo">
+<meta name="dcterms.date" content="2026-07-30">
+
+<title>Datos ausentes – Blog de Christian</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7e9717d9caa9b4d114d189eaeb260ada.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-653551165591d99bcbcdd27e7178a04e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Blog de Christian</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Acerca de mi</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cballejo/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="http://x.com/chrisballejo"> <i class="bi bi-twitter-x" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Datos ausentes</h1>
+            <p class="subtitle lead">Serie Datos</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">análisis</div>
+                <div class="quarto-category">datos</div>
+                <div class="quarto-category">NA</div>
+                <div class="quarto-category">naniar</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Christian Ballejo </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 30, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="por-qué-importan-los-datos-ausentes" class="level2">
+<h2 class="anchored" data-anchor-id="por-qué-importan-los-datos-ausentes">¿Por qué importan los datos ausentes?</h2>
+<p>Cuando trabajamos con datos reales, los valores perdidos (<code>NA</code> en R) no son simplemente un inconveniente técnico: representan decisiones analíticas con consecuencias concretas sobre la validez de las estimaciones. Ignorarlos o tratarlos de forma descuidada puede introducir sesgo de selección, alterar la representatividad de la muestra e implicar supuestos implícitos sobre el proceso que generó los datos.</p>
+<p>Por eso, antes de modelar o graficar, es indispensable entender qué está pasando con los valores ausentes. Tratar los <code>NA</code> no es simplemente “rellenar huecos”: es preguntarse qué dicen esos huecos sobre el proceso que produjo los datos, es decir, si existe un mecanismo de ausencia subyacente.</p>
+</section>
+<section id="contexto-para-la-toma-de-decisiones" class="level2">
+<h2 class="anchored" data-anchor-id="contexto-para-la-toma-de-decisiones">Contexto para la toma de decisiones</h2>
+<p>Antes de definir cómo proceder frente a valores ausentes, es necesario contextualizar cada caso y preguntarse por qué esa información no está presente en la tabla de datos.</p>
+<p>Un dato aislado rara vez es interpretable por sí mismo: su sentido suele estar anclado en el proceso de recolección y registro. En este punto, los metadatos asociados a la tabla de datos (por ejemplo, el diccionario de datos) resultan fundamentales, ya que permiten evaluar si la ausencia responde a errores de medición o carga —lo que podría justificar su corrección o exclusión, siempre debidamente documentada— o si, por el contrario, es inherente al fenómeno en estudio, en cuyo caso eliminarla implicaría perder información relevante.</p>
+<p>La mejor solución para el manejo de datos ausentes es prevenir su aparición. Esto supone fortalecer los procesos de recolección y carga de datos, minimizando la pérdida de información desde el origen.</p>
+<p>Sin embargo, en la práctica, con frecuencia no es posible recuperar los datos faltantes. En esos escenarios, nuestro rol como analista consiste en procesar la información disponible y explicitar de manera transparente qué decisiones se adoptaron frente a los valores ausentes y bajo qué supuestos.</p>
+</section>
+<section id="mecanismos-de-ausencia" class="level2">
+<h2 class="anchored" data-anchor-id="mecanismos-de-ausencia">Mecanismos de ausencia</h2>
+<p>Técnicamente se reconocen tres tipos de mecanismo, con implicancias muy distintas para el análisis:</p>
+<section id="mcar-missing-completely-at-random-ausencia-completamente-aleatoria" class="level3">
+<h3 class="anchored" data-anchor-id="mcar-missing-completely-at-random-ausencia-completamente-aleatoria">MCAR — <em>Missing Completely at Random</em> (ausencia completamente aleatoria)</h3>
+<p>La probabilidad de que un dato falte no depende ni de las variables observadas ni del valor ausente en sí. El mecanismo es independiente de todo lo demás. Bajo MCAR, eliminar casos con datos faltantes no introduce sesgo en las estimaciones (medias, coeficientes de regresión, etc.), aunque sí reduce el tamaño muestral y la potencia estadística.</p>
+<p>En la práctica, asumir MCAR es cómodo pero raramente justificado con datos reales.</p>
+</section>
+<section id="mar-missing-at-random-ausencia-dependiente-de-lo-observado" class="level3">
+<h3 class="anchored" data-anchor-id="mar-missing-at-random-ausencia-dependiente-de-lo-observado">MAR — <em>Missing at Random</em> (ausencia dependiente de lo observado)</h3>
+<p>La ausencia depende de las variables observadas, pero no del valor que falta, una vez que se condiciona en esas variables. En este caso, ignorar el patrón de ausencia y eliminar filas puede introducir sesgo, ya que la estructura de covariables estará desbalanceada entre los casos observados y los ausentes.</p>
+<p>Supongamos, por ejemplo, que tenemos la variable <em>nivel de colesterol</em> con valores faltantes y la edad de la persona que está completa. Existe un escenario posible de mecanismo que puede explicarse en que las personas más jóvenes tienen menos probabilidad de hacerse un análisis y ello explica los NA en colesterol. Además, dentro de cada grupo etario, los valores de colesterol faltantes no son sistemáticamente más altos o más bajos que los observados.</p>
+<p>Entonces en MAR, los datos no están simplemente “faltando al azar” en sentido coloquial, sino “al azar condicionalmente a lo observado”.</p>
+</section>
+<section id="mnar-missing-not-at-random-ausencia-dependiente-del-valor-faltante" class="level3">
+<h3 class="anchored" data-anchor-id="mnar-missing-not-at-random-ausencia-dependiente-del-valor-faltante">MNAR — <em>Missing Not at Random</em> (ausencia dependiente del valor faltante)</h3>
+<p>La ausencia depende del propio valor no observado. Es el caso más problemático: no se resuelve con técnicas estándar de imputación. Requiere modelos explícitos del mecanismo de no respuesta, análisis de sensibilidad o información externa.</p>
+<p>Un ejemplo para esta situación la tenemos en suponer un estudio poblacional sobre el <em>consumo de alcohol</em> y que parte de los participantes no responda a la pregunta. Es plausible que las personas con consumos más altos tengan mayor probabilidad de no responder (por estigma, deseabilidad social o temor a consecuencias).</p>
+</section>
+</section>
+<section id="los-na-también-son-información" class="level2">
+<h2 class="anchored" data-anchor-id="los-na-también-son-información">Los NA también son información</h2>
+<p>El patrón de ausencia puede ser en sí mismo predictivo. En epidemiología, por ejemplo, el hecho de que un dato no esté registrado rara vez es fortuito y suele ser una señal sistemática asociada a características del paciente, del sistema de registro o del contexto clínico. Crear un indicador binario de “dato faltante” puede capturar mecanismos de comportamiento relevantes como la no respuesta, el abandono o la ocultación deliberada:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">edad_na =</span> <span class="fu">is.na</span>(edad))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Este indicador no reemplaza la imputación, pero puede ser útil como variable adicional en modelos o para explorar el mecanismo de ausencia.</p>
+</section>
+<section id="el-error-más-común-eliminar-filas-con-al-menos-un-na" class="level2">
+<h2 class="anchored" data-anchor-id="el-error-más-común-eliminar-filas-con-al-menos-un-na">El error más común: eliminar filas con al menos un NA</h2>
+<p>La eliminación masiva de observaciones con datos ausentes es una forma de <strong>sesgo de selección</strong>. Cuando una tabla tiene muchos NA, eliminar todas las filas incompletas equivale a redefinir silenciosamente la población de estudio: ya no se trabaja con “todos los individuos”, sino con <em>“los individuos con datos completos”</em>.</p>
+<p>Si la completitud de los datos está asociada a variables relevantes, la muestra resultante deja de representar a la población objetivo, y el modelo puede ajustarse a una subpoblación diferente. Las consecuencias concretas son: alteración de la composición de la muestra, distorsión de las asociaciones estimadas y sesgo en medidas como OR o RR.</p>
+<p><strong>Ejemplo epidemiológico:</strong> si los pacientes más graves tienen más datos faltantes y se los elimina del análisis, se subestima el riesgo real en la población.</p>
+</section>
+<section id="limitaciones-de-la-imputación-simple" class="level2">
+<h2 class="anchored" data-anchor-id="limitaciones-de-la-imputación-simple">Limitaciones de la imputación simple</h2>
+<p>Un método frecuente consiste en reemplazar los NA por un valor resumen de la distribución (media o mediana). Sin embargo, la imputación con la media no es “gratuita”: modifica la estructura de los datos de manera que reduce artificialmente la variabilidad, debilita las correlaciones entre variables, sesga los coeficientes estimados y genera intervalos de confianza artificialmente estrechos.</p>
+<p>En definitiva, no se están completando datos, sino introduciendo observaciones deterministas que nunca existieron.</p>
+</section>
+<section id="métodos-avanzados" class="level2">
+<h2 class="anchored" data-anchor-id="métodos-avanzados">Métodos avanzados</h2>
+<p>La imputación avanzada es un campo extenso que excede los objetivos de esta cursada, pero mencionaremos su existencia. Las técnicas más utilizadas son:</p>
+<ul>
+<li><strong>Imputación múltiple</strong> (paquetes <code>mice</code>, <code>Amelia</code>): genera varias versiones del conjunto de datos con distintas imputaciones plausibles y combina los resultados mediante reglas estadísticas formales, produciendo estimaciones que incorporan la incertidumbre sobre los valores faltantes.</li>
+<li><strong>Modelos bayesianos</strong>: permiten incorporar esa incertidumbre de forma natural dentro del propio modelo de análisis.</li>
+<li><strong>Machine learning</strong>: algunos algoritmos (como los basados en árboles) manejan NA de forma nativa o mediante imputación por proximidad entre observaciones similares.</li>
+</ul>
+<p>Estos métodos no eliminan la necesidad de reflexionar sobre el mecanismo de ausencia: lo hacen más explícito y, en algunos casos, permiten modelarlo directamente. Ninguno es una solución automática; todos requieren decisiones informadas sobre el contexto y los datos.</p>
+</section>
+<section id="estrategia-práctica-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="estrategia-práctica-en-r">Estrategia práctica en R</h2>
+<section id="paso-1-detectar-y-cuantificar-los-na" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-detectar-y-cuantificar-los-na">Paso 1: detectar y cuantificar los NA</h3>
+<p>El primer paso es siempre conocer el porcentaje de completitud de cada variable relevante. El lenguaje R ofrece formas sencillas de hacer esto variable por variable:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar NA en una variable</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(datos<span class="sc">$</span>mi_variable))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen general del dataframe (informa NA en variables numéricas y de fecha)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Sin embargo, la función <code>find_na()</code> del paquete <code>dlookr</code> permite obtener el porcentaje de valores perdidos en todas las variables del dataframe en una sola línea:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">find_na</span>(datos, <span class="at">rate =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Se complementa con el gráfico de Pareto <code>plot_na_pareto()</code>, provisto por el mismo paquete, que visualiza las variables ordenadas por su porcentaje de ausencia:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_na_pareto</span>(datos, <span class="at">only_na =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="paso-2-explorar-la-estructura-de-los-na-con-naniar" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-explorar-la-estructura-de-los-na-con-naniar">Paso 2: explorar la estructura de los NA con <code>naniar</code></h3>
+<p>El paquete <code>naniar</code> fue diseñado específicamente para el manejo de valores faltantes en el ecosistema <code>tidyverse</code>. Sus funciones permiten no solo cuantificar los NA sino también explorar sus relaciones y patrones, lo que es esencial para evaluar el mecanismo de ausencia.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La función <code>miss_var_summary()</code> proporciona un resumen tabular con recuento absoluto y porcentaje de NA por variable:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_var_summary</span>(datos)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Para visualizarlo, <code>gg_miss_var()</code> genera un gráfico de tipo lollipop horizontal compatible con <code>ggplot2</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(datos, <span class="at">show_pct =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Una visualización especialmente útil es <code>gg_miss_upset()</code>, que muestra las combinaciones de variables con NA simultáneos mediante un gráfico UpSet. Esto permite identificar si ciertos grupos de variables tienden a faltar juntas, lo que puede ser una señal de un mecanismo de ausencia no aleatorio:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(datos)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Si hay variables con casi todos los valores vacíos, conviene excluirlas previamente:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>variable_casi_vacia) <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gg_miss_upset</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="paso-3-recodificar-valores-que-representan-ausencia" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-recodificar-valores-que-representan-ausencia">Paso 3: recodificar valores que representan ausencia</h3>
+<p>En bases de datos reales, la ausencia no siempre está codificada como <code>NA</code>. A veces se utilizan códigos especiales (“00”, “99”, “S/D”) que el sistema registra como valores válidos pero que en realidad indican ausencia de información. <code>naniar</code> ofrece la función <code>replace_with_na()</code> para convertir esos valores en <code>NA</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_with_na</span>(<span class="at">replace =</span> <span class="fu">list</span>(<span class="at">provincia =</span> <span class="st">"99"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La función inversa, <code>replace_na_with()</code>, permite etiquetar los <code>NA</code> con una categoría explícita, lo que es útil cuando la ausencia es informativa y se quiere incluirla como una categoría en tablas y análisis:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">motivo =</span> <span class="fu">replace_na_with</span>(motivo, <span class="st">"Sin dato"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="paso-4-decidir-y-documentar" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4-decidir-y-documentar">Paso 4: decidir y documentar</h3>
+<p><strong>Análisis de casos completos</strong></p>
+<p>Eliminar observaciones con NA y trabajar con el subconjunto completo. Es razonable cuando el porcentaje de NA es bajo y no hay evidencia de que la ausencia esté asociada a variables relevantes.</p>
+<p>Para eliminar filas con NA en variables específicas, <code>drop_na()</code> de <code>tidyr</code> es preferible a <code>na.omit()</code> de R base, ya que permite especificar sobre qué variables operar:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EVITAR: elimina toda fila con al menos un NA en cualquier variable</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(datos)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># PREFERIR: elimina solo las filas con NA en las variables que interesan</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(variable1, variable2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Aplicar <code>na.omit()</code> sobre un dataframe con variables de alta tasa de ausencia puede resultar en la pérdida de todas las observaciones. Siempre debe verificarse cuántas observaciones quedan después de la eliminación.</p>
+<p>Debe reportarse explícitamente en el informe: <em>“Se realizó un análisis de casos completos asumiendo ausencia no diferencial.”</em></p>
+<p><strong>Uso de subconjuntos por modelo</strong></p>
+<p>R elimina automáticamente los casos incompletos al ajustar modelos. Hay que tener presente que el <span class="math inline">\(n\)</span> puede variar entre modelos si no se trabaja sobre el mismo subconjunto de datos, lo que puede hacer que las comparaciones sean inconsistentes (por ejemplo, al comparar modelos mediante ANOVA).</p>
+<p><strong>Indicador de dato faltante</strong></p>
+<p>Cuando la ausencia es potencialmente informativa, puede crearse un indicador binario que capture ese hecho como variable adicional. No reemplaza la imputación, pero permite explorar si la ausencia se asocia con el resultado de interés.</p>
+</section>
+</section>
+<section id="resumen-de-buenas-prácticas" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-de-buenas-prácticas">Resumen de buenas prácticas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Acción</th>
+<th>Herramienta en R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cuantificar NA por variable</td>
+<td><code>find_na()</code> (dlookr), <code>miss_var_summary()</code> (naniar)</td>
+</tr>
+<tr class="even">
+<td>Visualizar frecuencia de NA</td>
+<td><code>plot_na_pareto()</code>, <code>gg_miss_var()</code></td>
+</tr>
+<tr class="odd">
+<td>Explorar combinaciones de NA</td>
+<td><code>gg_miss_upset()</code> (naniar)</td>
+</tr>
+<tr class="even">
+<td>Recodificar valores como NA</td>
+<td><code>replace_with_na()</code> (naniar)</td>
+</tr>
+<tr class="odd">
+<td>Etiquetar NA como categoría</td>
+<td><code>replace_na_with()</code> (naniar)</td>
+</tr>
+<tr class="even">
+<td>Eliminar observaciones incompletas</td>
+<td><code>drop_na()</code> (tidyr)</td>
+</tr>
+<tr class="odd">
+<td>Justificar y reportar la decisión</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="conclusión" class="level2">
+<h2 class="anchored" data-anchor-id="conclusión">Conclusión</h2>
+<p>No existe tratamiento <em>“neutro”</em> de los datos ausentes. Cada decisión implica asumir algo sobre cómo se generaron los datos, qué queda dentro del análisis y qué relaciones se están estimando. La transparencia metodológica es parte del rigor analítico, por lo que toda decisión debe tomarse de forma consciente y reportarse explícitamente.</p>
+</section>
+<section id="bibliografía" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bibliografía</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gelman2006" class="csl-entry" role="listitem">
+Gelman, Andrew, and Jennifer Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-little_rubin2002" class="csl-entry" role="listitem">
+Little, Roderick J. A., and Donald B. Rubin. 2002. <em>Statistical Analysis with Missing Data</em>. 2nd ed. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-pedersen2017" class="csl-entry" role="listitem">
+Pedersen, Alma Bech, Ellen Marie Mikkelsen, Deirdre Cronin-Fenton, Nete Munk Kristensen, Tra My Pham, Lars Pedersen, Kim Overvad, and Vera Ehrenstein. 2017. <span>“Missing Data and Multiple Imputation in Clinical Epidemiological Research.”</span> <em>Clinical Epidemiology</em> 9: 157–66. <a href="https://doi.org/10.2147/CLEP.S129785">https://doi.org/10.2147/CLEP.S129785</a>.
+</div>
+<div id="ref-rubin1976" class="csl-entry" role="listitem">
+Rubin, Donald B. 1976. <span>“Inference and Missing Data.”</span> <em>Biometrika</em> 63 (3): 581–92. <a href="https://doi.org/10.1093/biomet/63.3.581">https://doi.org/10.1093/biomet/63.3.581</a>.
+</div>
+<div id="ref-schafer_graham2002" class="csl-entry" role="listitem">
+Schafer, Joseph L., and John W. Graham. 2002. <span>“Missing Data: Our View of the State of the Art.”</span> <em>Psychological Methods</em> 7 (2): 147–77. <a href="https://doi.org/10.1037/1082-989X.7.2.147">https://doi.org/10.1037/1082-989X.7.2.147</a>.
+</div>
+<div id="ref-sterne2009" class="csl-entry" role="listitem">
+Sterne, Jonathan A. C., Ian R. White, John B. Carlin, Michael Spratt, Patrick Royston, Michael G. Kenward, Angela M. Wood, and James R. Carpenter. 2009. <span>“Multiple Imputation for Missing Data in Epidemiological and Clinical Research: Potential and Pitfalls.”</span> <em>BMJ</em> 338: b2393. <a href="https://doi.org/10.1136/bmj.b2393">https://doi.org/10.1136/bmj.b2393</a>.
+</div>
+<div id="ref-tierney_naniar2023" class="csl-entry" role="listitem">
+Tierney, Nicholas J., and Dianne H. Cook. 2023. <span>“Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.”</span> <em>Journal of Statistical Software</em> 105 (7): 1–31. <a href="https://doi.org/10.18637/jss.v105.i07">https://doi.org/10.18637/jss.v105.i07</a>.
+</div>
+<div id="ref-vanbuuren2018" class="csl-entry" role="listitem">
+van Buuren, Stef. 2018. <em>Flexible Imputation of Missing Data</em>. 2nd ed. Boca Raton, FL: CRC Press / Chapman &amp; Hall. <a href="https://stefvanbuuren.name/fimd/">https://stefvanbuuren.name/fimd/</a>.
+</div>
+<div id="ref-vanbuuren_mice2011" class="csl-entry" role="listitem">
+van Buuren, Stef, and Karin Groothuis-Oudshoorn. 2011. <span>“<span class="nocase">mice</span>: Multivariate Imputation by Chained Equations in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 45 (3): 1–67. <a href="https://doi.org/10.18637/jss.v045.i03">https://doi.org/10.18637/jss.v045.i03</a>.
+</div>
+<div id="ref-white_carlin2010" class="csl-entry" role="listitem">
+White, Ian R., and John B. Carlin. 2010. <span>“Bias and Efficiency of Multiple Imputation Compared with Complete-Case Analysis for Missing Covariate Values.”</span> <em>Statistics in Medicine</em> 29 (28): 2920–31. <a href="https://doi.org/10.1002/sim.3944">https://doi.org/10.1002/sim.3944</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
