@@ -4,7 +4,7 @@ subtitle: "Serie Encuestas"
 author: "Christian Ballejo"
 date: "2026-07-30"
 categories: [R, análisis, datos]
-image: "encuesta.jpeg"
+image: "encuesta.jpg"
 bibliography: bibliografia.bib
 nocite: |
   @*

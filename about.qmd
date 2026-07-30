@@ -5,7 +5,6 @@ about:
   template: jolla
   links:
     - icon: twitter-x
-      text: X
       href: http://x.com/chrisballejo
     - icon: linkedin
       text: LinkedIn
