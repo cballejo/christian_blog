@@ -14,8 +14,7 @@ website:
 format:
   html:
     theme:
-      light: zephyr
-      dark:  darkly
+      - darkly
     css: styles.css
     code-copy: true
 
