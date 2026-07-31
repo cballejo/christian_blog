@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.21">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 
 <title>Análisis de encuestas poblaciones con survey y srvyr – Blog de Christian</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -61,7 +67,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,15 +94,14 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7e9717d9caa9b4d114d189eaeb260ada.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-653551165591d99bcbcdd27e7178a04e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8f7dc8c9aa737a24d3afd8405dcd9493.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,8 +141,6 @@ div.csl-indent {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Blog de Christian</span>
     </a>
@@ -777,33 +779,33 @@ div.csl-indent {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bibliografía</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bibliografía</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bell2012use" class="csl-entry" role="listitem">
-Bell, Bradley A., Anthony J. Onwuegbuzie, John M. Ferron, Qun G. Jiao, Seung T. Hibbard, and Jeffrey D. Kromrey. 2012. <span>“Use of Design Effects and Sample Weights in Complex Health Survey Data: A Review of Published Articles Using Data from 3 Commonly Used Adolescent Health Surveys.”</span> <em>American Journal of Public Health</em> 102 (7): 1399–1405. <a href="https://doi.org/10.2105/AJPH.2011.300398">https://doi.org/10.2105/AJPH.2011.300398</a>.
+Bell, Bradley A., Anthony J. Onwuegbuzie, John M. Ferron, Qun G. Jiao, Seung T. Hibbard, and Jeffrey D. Kromrey. 2012. <span>“Use of Design Effects and Sample Weights in Complex Health Survey Data: A Review of Published Articles Using Data from 3 Commonly Used Adolescent Health Surveys.”</span> <em>American Journal of Public Health</em> 102 (7): 1399–405. <a href="https://doi.org/10.2105/AJPH.2011.300398">https://doi.org/10.2105/AJPH.2011.300398</a>.
 </div>
 <div id="ref-epidat2016" class="csl-entry" role="listitem">
-Consellería de Sanidade, Xunta de Galicia, Organización Panamericana de la Salud, and Universidad CES. 2016. <em>Epidat: Programa Para an<span>á</span>lisis Epidemiol<span>ó</span>gico de Datos. Versi<span>ó</span>n 4.2</em>. Espa<span>ñ</span>a; Colombia: Conseller<span>í</span>a de Sanidade, Xunta de Galicia; OPS-OMS; Universidad CES.
+Consellería de Sanidade, Xunta de Galicia, Organización Panamericana de la Salud, and Universidad CES. 2016. <em>Epidat: Programa Para an<span>á</span>lisis Epidemiol<span>ó</span>gico de Datos. Versi<span>ó</span>n 4.2</em>. Conseller<span>í</span>a de Sanidade, Xunta de Galicia; OPS-OMS; Universidad CES.
 </div>
 <div id="ref-freedman2023srvyr" class="csl-entry" role="listitem">
 Freedman Ellis, Greg, and Ben Schneider. 2023. <em>Srvyr: ’Dplyr’-Like Syntax for Summary Statistics of Survey Data</em>. <a href="https://CRAN.R-project.org/package=srvyr">https://CRAN.R-project.org/package=srvyr</a>.
 </div>
 <div id="ref-gutierrez2020criterios" class="csl-entry" role="listitem">
-Gutiérrez, Andrés, Xavier Mancero, Álvaro Fuentes, Felipe López, and Felipe Molina. 2020. <span>“Criterios de Calidad En La Estimaci<span>ó</span>n de Indicadores a Partir de Encuestas de Hogares: Una Aplicaci<span>ó</span>n a La Migraci<span>ó</span>n Internacional.”</span> Serie Estudios Estad{\'i}sticos 101 (LC/TS.2020/52). Santiago: Comisi<span>ó</span>n Econ<span>ó</span>mica para Am<span>é</span>rica Latina y el Caribe (CEPAL).
+Gutiérrez, Andrés, Xavier Mancero, Álvaro Fuentes, Felipe López, and Felipe Molina. 2020. <em>Criterios de Calidad En La Estimaci<span>ó</span>n de Indicadores a Partir de Encuestas de Hogares: Una Aplicaci<span>ó</span>n a La Migraci<span>ó</span>n Internacional</em>. Serie Estudios Estad{\'i}sticos 101 (LC/TS.2020/52). Comisi<span>ó</span>n Econ<span>ó</span>mica para Am<span>é</span>rica Latina y el Caribe (CEPAL).
 </div>
 <div id="ref-lumley2010complex" class="csl-entry" role="listitem">
-Lumley, Thomas. 2010. <em>Complex Surveys: A Guide to Analysis Using r</em>. Hoboken, NJ: John Wiley &amp; Sons.
+Lumley, Thomas. 2010. <em>Complex Surveys: A Guide to Analysis Using r</em>. John Wiley &amp; Sons.
 </div>
 <div id="ref-lumley2020survey" class="csl-entry" role="listitem">
-———. 2020. <em>Survey: Analysis of Complex Survey Samples</em>.
+Lumley, Thomas. 2020. <em>Survey: Analysis of Complex Survey Samples</em>.
 </div>
 <div id="ref-nap2015acs" class="csl-entry" role="listitem">
-National Research Council. 2015. <em>Realizing the Potential of the American Community Survey: Challenges, Tradeoffs, and Opportunities</em>. Edited by Panel on Addressing Priority Technical Issues for the Next Decade of the American Community Survey, Committee on National Statistics, Division of Behavioral, Social Sciences, and Education. Washington, DC: The National Academies Press. <a href="https://doi.org/10.17226/21653">https://doi.org/10.17226/21653</a>.
+National Research Council. 2015. <em>Realizing the Potential of the American Community Survey: Challenges, Tradeoffs, and Opportunities</em>. Edited by Panel on Addressing Priority Technical Issues for the Next Decade of the American Community Survey, Committee on National Statistics, Division of Behavioral, Social Sciences, and Education. The National Academies Press. <a href="https://doi.org/10.17226/21653">https://doi.org/10.17226/21653</a>.
 </div>
 <div id="ref-sakshaug2014important" class="csl-entry" role="listitem">
 Sakshaug, Joseph W., and Brady T. West. 2014. <span>“Important Considerations When Analyzing Health Survey Data Collected Using a Complex Sample Design.”</span> <em>American Journal of Public Health</em> 104 (1): 15–16. <a href="https://doi.org/10.2105/AJPH.2013.301515">https://doi.org/10.2105/AJPH.2013.301515</a>.
 </div>
 <div id="ref-silva2000diseno" class="csl-entry" role="listitem">
-Silva Ayçaguer, Luis Carlos. 2000. <em>Dise<span>ñ</span>o Razonado de Muestras y Captaci<span>ó</span>n de Datos Para La Investigaci<span>ó</span>n Sanitaria</em>. Madrid: Ediciones D<span>í</span>az de Santos.
+Silva Ayçaguer, Luis Carlos. 2000. <em>Dise<span>ñ</span>o Razonado de Muestras y Captaci<span>ó</span>n de Datos Para La Investigaci<span>ó</span>n Sanitaria</em>. Ediciones D<span>í</span>az de Santos.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -857,13 +859,14 @@ Silva Ayçaguer, Luis Carlos. 2000. <em>Dise<span>ñ</span>o Razonado de Muestra
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

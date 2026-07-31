@@ -14,7 +14,7 @@ nocite: |
 
 En los estudios epidemiológicos de corte transversal, muchas veces se realizan y/o utilizan encuestas poblacionales para estimar la prevalencia de determinadas características de salud y factores de riesgo en la población.
 
-Estas encuestas enfrentan restricciones prácticas que hacen que el **Muestreo Aleatorio Simple** (MAS) no sea factible o no sea conveniente por costoso en infraestructura, tiempo y dinero. Por lo tanto resulta necesario recurrir a otras alternativas de muestreo, como la estratificación, la selección en etapas, la formación de conglomerados o el empleo de probabilidades de selección desiguales. 
+Estas encuestas enfrentan restricciones prácticas que hacen que el **Muestreo Aleatorio Simple** (MAS) no sea factible o no sea conveniente por costoso en infraestructura, tiempo y dinero. Por lo tanto resulta necesario recurrir a otras alternativas de muestreo, como la estratificación, la selección en etapas, la formación de conglomerados o el empleo de probabilidades de selección desiguales.
 
 Los diseños muestrales que incorporan combinaciones de estas estrategias se denominan complejos, por contraste con el MAS, en el que las unidades muestrales se seleccionan independientemente unas de otras y todas tienen igual probabilidad de selección y distribución.
 
@@ -22,11 +22,11 @@ Realizar estimaciones acompañadas de sus intervalos de confianza (IC) en estas 
 
 ### Algunas definiciones necesarias
 
-**Estratos**:  son subpoblaciones "naturales" que, a priori, son homogéneos en su interior pero heterogéneos entre sí. 
+**Estratos**: son subpoblaciones "naturales" que, a priori, son homogéneos en su interior pero heterogéneos entre sí.
 
-El diseño de la encuesta se hace de modo que se garantiza cubrir adecuadamente todos los estratos de interés. Algunas variables de estratos habituales son: sexo, edad (como grupo etario), nivel de educación,  urbano/rural, etc.
+El diseño de la encuesta se hace de modo que se garantiza cubrir adecuadamente todos los estratos de interés. Algunas variables de estratos habituales son: sexo, edad (como grupo etario), nivel de educación, urbano/rural, etc.
 
-**Conglomerados**: son unidades definidas dentro de cada estrato (si es muestreo polietápico), cuyo tamaño es conocido. 
+**Conglomerados**: son unidades definidas dentro de cada estrato (si es muestreo polietápico), cuyo tamaño es conocido.
 
 Lo ideal es que la población dentro de un conglomerado sea lo más heterogénea posible, pero debe haber homogeneidad entre los conglomerados. Cada grupo debe ser una representación a pequeña escala de la población total. Los grupos deben ser mutuamente excluyentes y colectivamente exhaustivos.
 
@@ -38,12 +38,11 @@ Es aconsejable respetar estos dominios de estimación y no realizar inferencia d
 
 **Factor de expansión**: es el valor asociado a cada unidad elegible y que responde a la muestra, que se construye a partir de la inversa de la probabilidad de inclusión de cada unidad o peso muestral inicial.
 
-Puede incluir distintos tipos de ajustes, para disminuir en lo posible los errores de cobertura y de no respuesta que afectan a la encuesta, y ser tratados por un proceso de calibración que lleva en general a ganar eficiencia y precisión en las estimaciones. 
+Puede incluir distintos tipos de ajustes, para disminuir en lo posible los errores de cobertura y de no respuesta que afectan a la encuesta, y ser tratados por un proceso de calibración que lleva en general a ganar eficiencia y precisión en las estimaciones.
 
 Los factores de expansión finales son los que se emplean tanto para generar todas las estimaciones de una encuesta, como en los cálculos del error muestral al determinar la precisión alcanzada.
 
 **Efecto de diseño (DEFF por sus siglas en inglés)**: mide la pérdida en precisión al utilizar un diseño muestral complejo en lugar de un diseño aleatorio simple, por ejemplo, un efecto de diseño de 1,5 indica que la varianza del diseño complejo es 1,5 veces más grande que la varianza de un diseño aleatorio simple, en otras palabras se dio un aumento en la varianza de un 50%.
-
 
 ## Paquete survey y srvyr de R
 
@@ -53,7 +52,7 @@ La versión actual publicada en CRAN es la 4.5 (24-02-2026) y en el siguiente [e
 
 Las funciones que lo integran utilizan en sus argumentos la sintaxis fórmula preferentemente y no son compatibles con el universo "ordenado" de tidyverse.
 
-Con el objetivo de hacer compatible estas funciones crearon un paquete "wrapper" (envoltorio) llamado **srvyr** que incorpora sintaxis *tidy*, haciendo uso de tuberías y funciones tales como `group_by()`, `summarise()`, entre otras. 
+Con el objetivo de hacer compatible estas funciones crearon un paquete "wrapper" (envoltorio) llamado **srvyr** que incorpora sintaxis *tidy*, haciendo uso de tuberías y funciones tales como `group_by()`, `summarise()`, entre otras.
 
 Durante este documento vamos a aprovechar las bondades de estas funciones que [srvyr](https://cran.r-project.org/web/packages/srvyr/index.html) en su versión 1.3.1 (02-02-2026) ofrece.
 
@@ -63,13 +62,11 @@ Se activa, como todos los paquetes, con:
 library(srvyr)
 ```
 
-
 ### Especificación del diseño de la muestra
 
 El primer paso para trabajar con las funciones de **srvyr** es crear un objeto con la información relacionada con el diseño muestral.
 
 Esta tarea se realiza con la función `as_survey_design()` que tiene estos argumentos principales:
-
 
 ```{r, eval=FALSE}
 datos |>                       
@@ -85,7 +82,6 @@ donde:
 
 - **ids**: Variables que especifican identificadores de conglomerados desde el nivel más grande hasta el nivel más pequeño (dejar el argumento vacío, `NULL`, 1 o 0 indica que no hay conglomerados).
 
-
 - **strata**: Variables que identifican a los estratos. Si no hay estratos, se ignora esta especificación.
 
 Usualmente, se declara a partir de una variable. Por ejemplo, si la variable ESTRATO define los estratos, sería,
@@ -99,13 +95,13 @@ datos |>
 
 - **variables**: Variables que se incluirán en el diseño. El valor predeterminado es todas las variables de datos.
 
-- **fpc**: Variables con el factor de corrección por población finita. 
+- **fpc**: Variables con el factor de corrección por población finita.
 
 - **nest**: Si es TRUE, re-etiqueta los conglomerados considerando anidamiento dentro de los estratos. Necesario activar cuando las etiquetas de las categorías de los conglomerados en los distintos estratos se llaman igual.
 
 - **weights**: Variables de ponderación de cada observación (inverso a la probabilidad).
 
-Los argumentos mínimos que debemos definir dependerá de la estructura muestral de la base de datos que estemos analizando y de las variables que tengamos a disposición. Habitualmente se tiene referencia de estratos, conglomerados y ponderaciones. También podemos encontrarnos con situaciones donde están definidos los tamaños poblacionales (variable fpc). 
+Los argumentos mínimos que debemos definir dependerá de la estructura muestral de la base de datos que estemos analizando y de las variables que tengamos a disposición. Habitualmente se tiene referencia de estratos, conglomerados y ponderaciones. También podemos encontrarnos con situaciones donde están definidos los tamaños poblacionales (variable fpc).
 
 Para ejemplificar vamos a tomar a la **Encuesta Mundial de Salud Escolar** (EMSE) en su tercera edición que en la Argentina se realizó en 2018. Se puede acceder a sus datos abiertos en [EMSE 2018](http://datos.salud.gob.ar/dataset/base-de-datos-de-la-3-encuesta-mundial-de-salud-escolar-emse-con-resultados-nacionales-argentina)
 
@@ -123,6 +119,7 @@ EMSE2018 <- read_csv2("EMSE_DatosAbiertos.txt")
 
 dim(EMSE2018) # dimensiones de la tabla de datos
 ```
+
 Observamos que el dataframe original importado consta de *309 variables y 56.981 observaciones*. (no mostramos en el documento la salida de la estructura brindada por `glimpse()` por su longitud)
 
 El total de la muestra expandida es de 2.637.546 estudiantes.
@@ -139,7 +136,6 @@ EMSE2018 <- EMSE2018 |>
   mutate(IMC = q5/(q4)^2)  # peso sobre talla al cuadrado
 ```
 
-
 Las variables relevantes para el diseño muestral que el documento de usuario define son:
 
 - **psu**: Unidades primarias de muestreo (conglomerados)
@@ -147,7 +143,6 @@ Las variables relevantes para el diseño muestral que el documento de usuario de
 - **stratum**: Estratos del muestreo
 
 - **weight**: Ponderación
-
 
 Estas son las tres variables que participaran dentro de los argumentos para definir el objeto de diseño muestral de **survey/srvyr**, junto a un pequeño recorte de variables con las que vamos a trabajar.
 
@@ -179,9 +174,9 @@ d <- EMSE2018 |>
 
 ```
 
-Una vez que tenemos creado el objeto __*"survey.design"*__, que en nuestro ejemplo se denomina **d**, podemos avanzar en el calculo de las estimaciones.
+Una vez que tenemos creado el objeto ***"survey.design"***, que en nuestro ejemplo se denomina **d**, podemos avanzar en el calculo de las estimaciones.
 
-Si bien podemos manipular datos dentro de este formato de diseño utilizando algunas de las funciones de tidyverse (select, mutate, filter y rename) lo conveniente es modificar previamente la estructura de la tabla de datos, ya sea para crear una nueva variable, como hicimos recién con IMC o cambiar una existente y luego generar el objeto con el diseño muestral para poder hacer uso de esos cambios en las estimaciones. 
+Si bien podemos manipular datos dentro de este formato de diseño utilizando algunas de las funciones de tidyverse (select, mutate, filter y rename) lo conveniente es modificar previamente la estructura de la tabla de datos, ya sea para crear una nueva variable, como hicimos recién con IMC o cambiar una existente y luego generar el objeto con el diseño muestral para poder hacer uso de esos cambios en las estimaciones.
 
 ### Estimaciones
 
@@ -195,7 +190,7 @@ La función `survey_mean()` computa estimaciones de medias en diseños complejos
 
 Los siguientes son los argumentos comunes de la función:
 
-- **x**: Variable o expresión o vacía. 
+- **x**: Variable o expresión o vacía.
 
 - **na.rm**: Si es TRUE, omite los valores NA de la variable
 
@@ -215,18 +210,20 @@ d |>
               level = 0.95))
 
 ```
+
 El resultado muestra una media de IMC de 22,1, un error estándar de 0,09, un intervalo de confianza al 95% de (22,0-22,3), una varianza de 0,007 y un coeficiente de variación de 0,4 %.
 
 Como nos informan que hubo no respuesta en la encuesta y la faltante de información en altura y/o peso provoca observaciones perdidas en la variable IMC, vamos a ver cuantos de estos valores perdidos tenemos en la variable.
 
-Si deseamos calcular totales, es decir a cuantos estudiantes representa estos valores perdidos podemos usar la función `survey_total()`. 
+Si deseamos calcular totales, es decir a cuantos estudiantes representa estos valores perdidos podemos usar la función `survey_total()`.
 
 ```{r}
 d |> 
   filter(is.na(IMC)) |>  # filtramos los NA en IMC
   summarise(IMC_na = survey_total(vartype = "ci"))
 ```
-Hay aproximadamente 976.104 IC 95% (87.820-1.074.088) estudiantes sin valor en la variable IMC del total de la población de 2.637.546 (un 37 %). 
+
+Hay aproximadamente 976.104 IC 95% (87.820-1.074.088) estudiantes sin valor en la variable IMC del total de la población de 2.637.546 (un 37 %).
 
 Si en lugar de la media quisiéramos la mediana podemos cambiar la función y usar `survey_median()`.
 
@@ -238,6 +235,7 @@ d |>
               level = 0.95))
 
 ```
+
 Podemos estratificar estas estimaciones haciendo uso del `group_by()`, por ejemplo con la variable **sexo** del estudiante:
 
 ```{r}
@@ -289,6 +287,7 @@ d |>
   group_by(texto_q6) |> # variable para la estimación
   summarise(prop_hambre = survey_prop(vartype = "ci")*100) # usamos 100 para %
 ```
+
 El ordenamiento de las categorías ahora es el correcto producto de la transformación a factor.
 
 Para estratificar estas proporciones lo único que debemos hacer es incorporar la variable de agrupamiento dentro del `group_by()`.
@@ -309,15 +308,15 @@ d |>
   summarise(prop_hambre = survey_prop(vartype = "ci")*100) # usamos 100 para %
 ```
 
-Un argumento incluido dentro de las posibilidades de `survey_prop()` es el método para su calculo (*prop_method = *). 
+Un argumento incluido dentro de las posibilidades de `survey_prop()` es el método para su calculo (*prop_method =* ).
 
 En este documento no vamos a profundizar en los métodos que la función ofrece, solo mencionaremos las posibilidades permitidas según la ayuda del paquete.
 
-El método de `"likelihood"` utiliza la distribución de chi-cuadrado escalada (Rao-Scott) para la loglikelihood de una distribución binomial. 
+El método de `"likelihood"` utiliza la distribución de chi-cuadrado escalada (Rao-Scott) para la loglikelihood de una distribución binomial.
 
-El método `"asin"` usa la transformación estabilizadora de la varianza para la distribución binomial, la raíz cuadrada del arcoseno, y luego transforma el intervalo a la escala de probabilidad. 
+El método `"asin"` usa la transformación estabilizadora de la varianza para la distribución binomial, la raíz cuadrada del arcoseno, y luego transforma el intervalo a la escala de probabilidad.
 
-El método `"beta"` usa la función beta incompleta como en `binom.test`, con una tamaño de muestra efectivo basado en la varianza estimada de la proporción. (Korn y Graubard, 1998) 
+El método `"beta"` usa la función beta incompleta como en `binom.test`, con una tamaño de muestra efectivo basado en la varianza estimada de la proporción. (Korn y Graubard, 1998)
 
 El método `"mean"` utiliza un intervalo tipo Wald en la escala de probabilidad, igual que `confint()`
 
@@ -337,7 +336,7 @@ Ahora tomaremos otra variable de la EMSE2018 llamada **qn24** que refiere a la p
 
 Estimaremos su proporción para toda la población pero también para una subpoblación en particular, por ejemplo para "3er año/12vo grado nivel Polimodal o 5to año nivel Secundario".
 
-Como es habitual que necesitemos obtener estimaciones en subgrupos o subpoblaciones determinados por categorías definidas de una variable, debemos tener cuidado al interpretar los elementos del muestro para que esas subpoblaciones hayan sido consideradas y por lo tanto estén incluídas como **dominio de estimación**. 
+Como es habitual que necesitemos obtener estimaciones en subgrupos o subpoblaciones determinados por categorías definidas de una variable, debemos tener cuidado al interpretar los elementos del muestro para que esas subpoblaciones hayan sido consideradas y por lo tanto estén incluídas como **dominio de estimación**.
 
 Estos subgrupos requeridos pueden no coincidir con los estratos de la muestra compleja generando un inconveniente para las estimaciones, dado que las ponderaciones muestrales serían correctas pero la probabilidad de muestreo seguramente no, lo que produce estimaciones puntuales correctas con errores estándar incorrectos.
 
@@ -403,7 +402,6 @@ d |>
 
 194 estudiantes de la muestra sin expandir respondieron que **Si** sobre 11.962 sin aplicar los filtros.
 
-
 ## Errores estándar según efecto del diseño
 
 En este punto vamos a comparar estimaciones en función de construir objetos de diseños muestrales diferentes sobre la misma base de datos **EMSE2018**.
@@ -447,12 +445,11 @@ Tenemos tres diseños distintos: un diseño complejo basado en conglomerados, es
 
 Sabemos que el primero es el diseño "real" con el que se llevó a cabo la recolección de los datos.
 
-Ahora volvamos a la variable **IMC**  para estimar su media en cada diseño.
+Ahora volvamos a la variable **IMC** para estimar su media en cada diseño.
 
 ```{r, echo=F}
 options(pillar.sigfig = 7)
 ```
-
 
 ```{r}
 d_complejo |> 
@@ -471,8 +468,7 @@ d_ponde |>
                                     vartype = c("ci", "cv")))
 ```
 
-
-La estimación puntual (IMC = 22,14) es la misma para los análisis que usan el diseño complejo y los que usan sólo pesos. A su vez es diferente si las estimaciones se llevan a cabo sin considerar el factor de expansión (muestreo simple - IMC = 22,23). 
+La estimación puntual (IMC = 22,14) es la misma para los análisis que usan el diseño complejo y los que usan sólo pesos. A su vez es diferente si las estimaciones se llevan a cabo sin considerar el factor de expansión (muestreo simple - IMC = 22,23).
 
 Los intervalos de confianza estimados son diferentes para todos los casos porque la varianza se vincula con la estructura del muestreo (estratos y conglomerados).
 
@@ -484,7 +480,6 @@ Basta comparar el resultado correcto IMC 22,14 IC95% (21,97-22,31) frente al pro
 
 Como vemos, el lenguaje R permite que construyamos el objeto de diseño de la muestra compleja con la forma que indiquemos pero esto no siempre es correcto. Debemos conocer previamente la forma en que se diseño el muestreo y como se expresa en las variables de la tabla de datos para hacerlo adecuadamente. **Es fundamental leer detenidamente los documentos de utilización de los datos de toda encuesta donde se hayan recolectado datos mediante muestreos complejos**.
 
-
 ### Criterios de calidad en las estimaciones
 
 Todas las estimaciones elaboradas a partir de datos obtenidos por encuestas poblacionales con muestreos complejos están sujetas al error muestral, lo que hace necesario evaluar su validez estadística mediante diversos indicadores de precisión y confiabilidad.
@@ -495,7 +490,7 @@ Veamos algunos de estos indicadores de calidad:
 
 Como vimos anteriormente es el principal indicador de calidad de una estimación.
 
-Esta medida configura un acercamiento al error de muestreo que permite verificar si la inferencia es válida. 
+Esta medida configura un acercamiento al error de muestreo que permite verificar si la inferencia es válida.
 
 Se caracteriza por ser proporcional a la amplitud del intervalo de confianza, que provee una versión estandarizada y relativa de la precisión alrededor de la estimación puntual.
 
@@ -507,10 +502,8 @@ Para calcular el coeficiente de variación de las estimaciones en estas estimaci
 
 Este criterio se encuentra generalmente relacionado al anterior y es relevante a la hora de decidir la calidad de la estimación. La cobertura de los intervalos de confianza y la distribución de los estimadores dependen de que, tanto el tamaño de la subpoblación como su tamaño de muestra asociado, no sean pequeños. Con este espíritu, *Gutiérrez y otros (2020)* proponen que todas las estimaciones basadas en un tamaño de muestra expandida menor a 100 unidades deberían ser marcadas como no confiables.
 
-
-#### Conteo de casos no ponderado 
+#### Conteo de casos no ponderado
 
 Cuando la incidencia de un fenómeno es muy baja y el diseño de la encuesta no lo tuvo en cuenta, entonces es posible que las estimaciones asociadas a tamaños, totales y proporciones sobre este fenómeno no sean confiables. Por ejemplo, *National Research Council (2015)* plantea que si el número de casos no ponderados es menor a 50 unidades entonces la estimación no sería publicable.
 
 ## Bibliografía
-

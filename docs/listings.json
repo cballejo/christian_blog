@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/quarto/index.html",
       "/posts/encuestas/index.html",
       "/posts/ajuste_tasas/index.html",
       "/posts/datos_ausentes/index.html",
