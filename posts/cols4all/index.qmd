@@ -44,8 +44,7 @@ La herramienta principal es un panel de control interactivo realizado como una v
 c4a_gui()
 ```
 
-![](cols4all2.jpg)
-Este panel cuenta con múltiples botones y filtros para explorar paletas categóricas, divergentes, secuenciales, cíclicas y bivariadas. Además, permite simular la compatibilidad con diferentes tipos de daltonismo (como Deuteranopía, Protanopía y Tritanopía).
+![](cols4all2.jpg) Este panel cuenta con múltiples botones y filtros para explorar paletas categóricas, divergentes, secuenciales, cíclicas y bivariadas. Además, permite simular la compatibilidad con diferentes tipos de daltonismo (como Deuteranopía, Protanopía y Tritanopía).
 
 ## Exploración por código
 
@@ -76,11 +75,13 @@ Para obtener los metadatos completos y evaluar la accesibilidad de una paleta es
 ```{r}
 c4a_info(palette = "powerbi.temperature")
 ```
+
 E incluso podemos consultar e imprimir la cita bibliográfica de una serie en formato **BibTeX** con `c4a_citation()`:
 
 ```{r}
 c4a_citation(name = "powerbi")
 ```
+
 ## Creación de paletas personalizadas
 
 Podemos registrar nuestras propias paletas mediante la función`c4a_data()`, especificando sus argumentos principales:
@@ -110,19 +111,17 @@ Y ya podemos invocarla utilizando la sintaxis `serie.nombre`:
 c4a("mis_paletas.mi_atardecer")
 ```
 
-::: {.callout-note}
+::: callout-note
 ## Nota sobre persistencia
 
 Para no perder tus paletas al cerrar R, puedes exportar tu base de datos personalizada con `c4a_sysdata_export()` e importarla en cualquier sesión futura con `c4a_sysdata_import()`.
 :::
 
-
 ## Integración con ggplot2
 
 **cols4all** incluye una familia de funciones de escala diseñadas para integrarse sin fricciones como capas de color o relleno en ggplot2.
 
-Su nomenclatura sigue la convención habitual de ggplot2:
-`scale_<color/fill>_<discrete/continuous/binned>_c4a_<tipo_paleta>()`
+Su nomenclatura sigue la convención habitual de ggplot2: `scale_<color/fill>_<discrete/continuous/binned>_c4a_<tipo_paleta>()`
 
 Ejemplo 1: Escala categórica (discreta)
 
@@ -136,6 +135,7 @@ pinguinos |>
   scale_color_discrete_c4a_cat("carto.safe") +
   theme_light()
 ```
+
 Aquí usamos `scale_color_discrete_c4a_cat("carto.safe")` para mapear una variable categórica (especie) a una escala discreta y segura para daltonismo.
 
 Ejemplo 2: Escala continua divergente
