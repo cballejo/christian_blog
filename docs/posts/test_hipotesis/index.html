@@ -263,7 +263,7 @@ window.Quarto = {
 </section>
 <section id="ejemplo-práctico" class="level2">
 <h2 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo práctico</h2>
-<p>Tomemos un dataset con algunas variables para usar de ejemplo. En este caso tenemos el archivo <em>Enterovirus.csv</em> con 168 observaciones independientes de muestras de pacientes que se derivaron por el sistema de vigilancia y se procesaron en el laboratorio.</p>
+<p>Tomemos un dataset con algunas variables para usar de ejemplo. En este caso tenemos el archivo <em>Enterovirus.csv</em> con 168 observaciones independientes de muestras de pacientes ficticios que se derivaron por el sistema de vigilancia y se procesaron en el laboratorio.</p>
 <p>Vamos a leerla, luego de activar los paquetes necesarios.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
@@ -289,7 +289,7 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 <section id="exploración-descriptiva" class="level3">
 <h3 class="anchored" data-anchor-id="exploración-descriptiva">Exploración descriptiva</h3>
 <p>La primera tarea que hacemos es explorar descriptivamente nuestra muestra.</p>
-<p><strong>rstatix</strong> ofrece una función llamada <code>get_summary_stats()</code> que nos informa de las medidas resumen de variables cuantitativas (como la edad de los pacientes) y al ser compatible con tidyverse podemos escribirla despues de estratificar por la variable categórica que nos interese. En nuestro caso esa será pcr_ev_lcr (tiene el resultado de la PCR de enterovirus en muestras de líquido cefalorraquideo).</p>
+<p><strong>rstatix</strong> ofrece una función llamada <code>get_summary_stats()</code> que nos informa de las medidas resumen de variables cuantitativas (como la edad de los pacientes) y al ser compatible con tidyverse podemos escribirla después de estratificar por la variable categórica que nos interese. En nuestro caso esa será pcr_ev_lcr (tiene el resultado de la PCR de enterovirus en muestras de líquido cefalorraquídeo).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>enterovirus <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pcr_ev_lcr) <span class="sc">|&gt;</span> </span>
@@ -302,11 +302,11 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 2 Positivo   edad       141     3    88      5   4    12.0  18.6  1.57  3.10</code></pre>
 </div>
 </div>
-<p>Observamos una diferencia de edad entre ambos grupos. La pregunta inferencial es si los datos aportan evidencia suficiente para considerar que esta diferencia es compatible con la hipótesis nula de ausencia de diferencia en la población.</p>
+<p>Observamos distintos valores resúmenes de la edad entre ambos grupos. La pregunta inferencial, es si los datos aportan evidencia suficiente para considerar que esta diferencia es compatible con la hipótesis nula de ausencia de diferencia en la población.</p>
 </section>
 <section id="pruebas-de-hipótesis-en-variables-cuantitativas" class="level3">
 <h3 class="anchored" data-anchor-id="pruebas-de-hipótesis-en-variables-cuantitativas">Pruebas de hipótesis en variables cuantitativas</h3>
-<p>Para definir si podemos llevar adelante un proceso paramétrico como un <span class="math inline">\(t\)</span> de Student para comparación de medias de 2 grupos independientes debemos conocer un poco mas sobre las distribuciones de la edad en cada grupo.</p>
+<p>Para definir si podemos llevar adelante un proceso paramétrico como un <span class="math inline">\(t\)</span> de Student para la comparación de medias de 2 grupos independientes debemos conocer un poco más sobre las distribuciones de la edad en cada grupo.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>enterovirus <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pcr_ev_lcr) <span class="sc">|&gt;</span> </span>
@@ -320,7 +320,7 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 </div>
 </div>
 <p>En el grupo Negativo no encontramos evidencia estadísticamente significativa contra el supuesto de normalidad (p = 0,490). En cambio, en el grupo Positivo la prueba proporciona evidencia muy fuerte de que la distribución de la edad se aparta de una distribución Normal (p &lt; 0,001).</p>
-<p>Otra forma complementaria es generar un gráfico QQ-plot por cada grupo. Se puede hacer, por ejmplo con la función <code>plot_normality()</code> del paquete dlookr.</p>
+<p>Otra forma complementaria es generar un gráfico QQ-plot por cada grupo. Se puede hacer, por ejemplo con la función <code>plot_normality()</code> del paquete <strong>dlookr</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>enterovirus <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pcr_ev_lcr) <span class="sc">|&gt;</span> </span>
@@ -346,7 +346,7 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 </div>
 </div>
 </div>
-<p>Evidentemente tenemos dos comportamientos en la distribución de los datos de edad bien diferentes. Por lo que, junto con la evaluación del tamaño muestral de los grupos concluimos que es más robusto usar métodos no paramétricos para comparar su distribución.</p>
+<p>Evidentemente tenemos dos comportamientos en la distribución de los datos de edad bien diferentes. Por lo que, junto con otras características, como la evaluación del tamaño muestral de los grupos concluimos que es más robusto usar métodos no paramétricos para comparar su distribución.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -357,13 +357,13 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Las pruebas de normalidad no deberían utilizarse como un mecanismo automático para decidir entre pruebas paramétricas y no paramétricas. La decisión debe considerar también el tamaño muestral, la forma de las distribuciones, la presencia de valores extremos y qué parámetro o característica de las distribuciones queremos comparar.</p>
+<p>Las pruebas de normalidad, como casi todo en la estadística, no deberían utilizarse como un mecanismo <strong>automático</strong> para decidir entre pruebas paramétricas y no paramétricas. La decisión debe considerar también el tamaño muestral, la forma de las distribuciones, la presencia de valores extremos y qué parámetro o característica de las distribuciones queremos comparar.</p>
 </div>
 </div>
-<p>El test de Mann-Whitney U es el adecuado para este caso y en el paquete rstatix se encuentra dentro de <code>wilcox_test()</code> con su argumento paired = FALSE (valor predeterminado).</p>
+<p>El test de Mann-Whitney U es el adecuado para este caso y en el paquete <strong>rstatix</strong> se encuentra dentro de <code>wilcox_test()</code> con su argumento <code>paired = FALSE</code> (valor predeterminado).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>enterovirus <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wilcox_test</span>(<span class="at">formula =</span> edad <span class="sc">~</span> pcr_ev_lcr) <span class="co"># sintaxis formula (edad segun grupos de pcr_ev_lcr)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wilcox_test</span>(<span class="at">formula =</span> edad <span class="sc">~</span> pcr_ev_lcr) <span class="co"># sintaxis formula (edad según grupos de pcr_ev_lcr)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 7
   .y.   group1   group2      n1    n2 statistic        p
@@ -371,13 +371,13 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 1 edad  Negativo Positivo    27   141      3484 6.82e-12</code></pre>
 </div>
 </div>
-<p>Existe evidencia estadísticamente significativa de que la distribución de la edad difiere entre los pacientes con PCR positiva y negativa (p &lt; 0,001).</p>
+<p>Vemos que existe evidencia estadísticamente significativa de que la distribución de la edad difiere entre los pacientes con PCR positiva y negativa (p &lt; 0,001).</p>
 <p>En particular, la mediana de edad fue de 45 años en el grupo negativo y de 5 años en el grupo positivo.</p>
-<p>Si a las funciones de pruebas de hipótesis de <strong>rstatix</strong> le activamos el argumento <code>detailed</code> nos darán mas información detallada (diferencia estimdad en la muestra -en este caso de la mediana-, intervalo de confianza, nombre del test e hipotesis alternativa)</p>
+<p>Si a las funciones de pruebas de hipótesis de <strong>rstatix</strong> le activamos el argumento <code>detailed</code> nos darán más información detallada (<em>diferencia estimada en la muestra, intervalo de confianza, nombre del test e hipótesis alternativa</em>)</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>enterovirus <span class="sc">|&gt;</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wilcox_test</span>(<span class="at">formula =</span> edad <span class="sc">~</span> pcr_ev_lcr, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">detailed =</span> T) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">detailed =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   estimate .y.   group1 group2    n1    n2 statistic        p conf.low conf.high
@@ -389,8 +389,8 @@ $ pcr_ev_lcr &lt;chr&gt; "Negativo", "Positivo", "Positivo", "Negativo", "Negati
 </section>
 <section id="pruebas-de-hipótesis-en-variables-cualitativas" class="level3">
 <h3 class="anchored" data-anchor-id="pruebas-de-hipótesis-en-variables-cualitativas">Pruebas de hipótesis en variables cualitativas</h3>
-<p>Ahora pasemos a proporciones, por ejemplo hagamos una tabla de contingencia para respondernos cuantos pacientes son positivos y negativos segun sean mujeres o varones.</p>
-<p>Antes de hacer la tabla, quitaremos los valores “sin datos” de sexo y, mediante un factor ordenaremos los valores de las categorías de pcr_ev_lcr.</p>
+<p>Ahora pasemos a proporciones, por ejemplo hagamos una tabla de contingencia para respondernos cuantos pacientes son positivos y negativos según sean mujeres o varones.</p>
+<p>Antes de hacer la tabla, quitaremos los valores de la categoría <em>“sin datos”</em> en sexo y, mediante un factor, ordenaremos los valores de las categorías de pcr_ev_lcr.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>enterovirus <span class="ot">&lt;-</span> enterovirus <span class="sc">|&gt;</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sexo <span class="sc">!=</span> <span class="st">"sin datos"</span>) <span class="sc">|&gt;</span> </span>
@@ -409,7 +409,7 @@ sexo Positivo Negativo
    m       70       15</code></pre>
 </div>
 </div>
-<p>Usamos la función <code>xtabs()</code> de R base que tiene una forma sencilla.</p>
+<p>Usamos la función <code>xtabs()</code> de R base que tiene una forma sencilla mediante sintaxis fórmula.</p>
 <p>Queremos evaluar si existe evidencia de asociación entre el sexo y el resultado de la PCR. Bajo la hipótesis nula de independencia, podemos calcular las frecuencias esperadas y compararlas con las observadas.</p>
 <p>Esto es aplicar el test de <span class="math inline">\(X^2\)</span> (chi-cuadrado).</p>
 <div class="cell">
@@ -434,21 +434,22 @@ sexo Positivo Negativo
    m 70.92025 14.07975</code></pre>
 </div>
 </div>
+<p>Los valores esperados son practicamente iguales a los observados.</p>
 <p>Hasta aquí hemos evaluado si existe evidencia estadísticamente significativa de asociación entre el sexo y el resultado de la PCR. Pero el valor de p no nos informa acerca de la magnitud de esa asociación.</p>
 <p>Una diferencia o asociación puede ser estadísticamente significativa y tener una magnitud pequeña, especialmente cuando trabajamos con muestras grandes. Del mismo modo, una asociación de cierta magnitud puede no alcanzar significación estadística cuando el tamaño de muestra es pequeño.</p>
-<p>Por eso, además de realizar la prueba de hipótesis, resulta útil estimar el tamaño del efecto. Para tablas de contingencia podemos utilizar la V de Cramer, que cuantifica la intensidad de la asociación entre las variables categóricas.</p>
+<p>Por eso, además de realizar la prueba de hipótesis, resulta útil estimar el tamaño del efecto. Para tablas de contingencia podemos utilizar la <span class="math inline">\(V\)</span> de Cramer, que cuantifica la intensidad de la asociación entre las variables categóricas.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cramer_v</span>(tabla_contingencia)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01388297</code></pre>
 </div>
 </div>
-<p>La V de Cramer toma valores entre 0 y 1: valores próximos a 0 indican una asociación débil o inexistente y valores mayores indican asociaciones de mayor magnitud. No obstante, los puntos de corte para definir qué constituye un efecto pequeño, moderado o grande no son universales y deben interpretarse considerando el contexto y las características de la tabla.</p>
-<p>En este caso, la V de Cramer es muy pequeña (0,014), lo que indica que la asociación observada entre sexo y resultado de la PCR es de magnitud muy baja.</p>
-<p>Esto es coherente con lo observado en la prueba de χ²: además de no encontrar evidencia estadísticamente significativa de asociación (p = 0,859), la magnitud de la asociación observada es prácticamente nula.</p>
-<p>El valor p y el tamaño del efecto no son lo mismo. El p-valor nos ayuda a evaluar la evidencia contra la hipótesis nula. La V de Cramer nos ayuda a cuantificar la magnitud de la asociación.</p>
+<p>La <span class="math inline">\(V\)</span> de Cramer toma valores entre 0 y 1: valores próximos a 0 indican una asociación débil o inexistente y valores mayores indican asociaciones de mayor magnitud. No obstante, los puntos de corte para definir qué constituye un efecto pequeño, moderado o grande no son universales y deben interpretarse considerando el contexto y las características de la tabla.</p>
+<p>En este caso, la <span class="math inline">\(V\)</span> de Cramer es muy pequeña (0,014), lo que indica que la asociación observada entre sexo y resultado de la PCR es inexistente.</p>
+<p>Esto es coherente con lo observado en la prueba de <span class="math inline">\(X^2\)</span>: además de no encontrar evidencia estadísticamente significativa de asociación (p = 0,859), la magnitud de la asociación observada es prácticamente nula.</p>
+<p>El valor p y el tamaño del efecto no son lo mismo. El p-valor nos ayuda a evaluar la evidencia contra la hipótesis nula. La <span class="math inline">\(V\)</span> de Cramer, en este caso, nos ayuda a cuantificar la magnitud de la asociación.</p>
 <p>Por eso, informar únicamente el p-valor proporciona una descripción incompleta de los resultados.</p>
-<p>En este ejemplo vimos dos situaciones diferentes: cuando queremos comparar una variable cuantitativa entre dos grupos independientes y cuando queremos evaluar la asociación entre dos variables categóricas. En ambos casos, <strong>rstatix</strong> permite mantener el análisis dentro del flujo de trabajo de tidyverse, pero la función que ejecutamos es solamente la última parte de un proceso que comienza con la pregunta de investigación, continúa con la exploración de los datos y termina con la interpretación del resultado.</p>
+<p>En este ejemplo vimos dos situaciones diferentes. Cuando queremos comparar una variable cuantitativa entre dos grupos independientes y cuando queremos evaluar la asociación entre dos variables categóricas. En ambos casos, <strong>rstatix</strong> permite mantener el análisis dentro del flujo de trabajo de tidyverse, pero la función que ejecutamos es solamente la última parte de un proceso que comienza con la pregunta de investigación, continúa con la exploración de los datos y termina con la interpretación del resultado.</p>
 </section>
 </section>
 <section id="bibliografía" class="level2">
